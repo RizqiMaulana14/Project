@@ -1,0 +1,70 @@
+@startuml
+title Use Case Diagram - Layanan Informasi Beasiswa
+'left to right direction
+
+actor Admin #LightPink
+actor User #Darkorange
+
+rectangle "Layanan Informasi Beasiswa" {
+    usecase "Login" as UC0 #LightBlue
+    usecase "Logout" as UC1 #LightBlue
+    'usecase "Registrasi" as UC2 #LightBlue
+
+    'usecase "Melakukan\nPemesanan" as UC3 #LightGreen
+    'usecase "Mencetak\nStruk" as UC4 #LightGreen
+    usecase "Melihat Daftar Beasiswa" as UC5 #LightGreen
+    'usecase "Mengembalikan PS" as UC6 #LightGreen
+    'usecase "Mengelola Data Diri (Profil)" as UC7 #LightGreen
+
+    usecase "Mengedit Informasi\nBeasiswa" as UC8 #LightCoral
+    usecase "Menambah Informasi\nBeasiswa" as UC9 #LightCoral
+    usecase "Menghapus Informasi\nBeasiswa" as UC10 #LightCoral
+}
+    
+UC0 .> UC1 : <<extend>>
+'UC2 ..>UC0 : <<include>>
+UC0 ..>UC9 : <<extend>>
+UC0 ..>UC10 : <<extend>>
+UC0 ..>UC8 : <<extend>>
+'UC9 ..>UC4 : <<extend>>
+'UC0 ..>UC3 : <<extend>>
+UC0 ..>UC5 : <<extend>>
+'UC3 ..>UC6 : <<extend>>
+'UC0 ..>UC7 : <<extend>>
+'UC3 ..> UC4 : <<extend>>
+
+Admin -->UC0
+User-->UC5
+@enduml
+
+@startuml
+left to right direction
+
+actor "Admin" as admin
+actor "Mahasiswa" as mhs
+
+rectangle "Layanan Informasi Beasiswa" {
+    usecase "Login" as UC_Login
+    usecase "Menambahkan Informasi Beasiswa" as UC_Add
+    usecase "Mengupdate Informasi Beasiswa" as UC_Update
+    usecase "Menghapus Informasi Beasiswa" as UC_Delete
+    usecase "Logout" as UC_Logout
+    usecase "Melihat Informasi Beasiswa" as UC_Read
+}
+
+' Relasi Admin
+admin --> UC_Login
+admin --> UC_Read
+
+' Relasi Include (Wajib Login)
+UC_Login ..> UC_Add : <<include>>
+UC_Login ..> UC_Update : <<include>>
+UC_Login ..> UC_Delete : <<include>>
+
+' Relasi Extend (Opsional)
+UC_Login ..> UC_Logout  : <<extend>>
+
+' Relasi Mahasiswa
+mhs --> UC_Read
+
+@enduml

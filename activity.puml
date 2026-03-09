@@ -1,0 +1,76 @@
+@startuml
+title Activity Diagram - Menambah Data Beasiswa
+
+partition "Admin" {
+    start
+    :Akses Menu Data Beasiswa;
+    :Tambah Data Beasiswa;
+    :Kirim Perubahan ke Backend;
+    stop
+}
+
+partition "Backend (Proses Data Beasiswa)" {
+    start
+    :Terima Data;
+    :Validasi & Simpan Perubahan;
+    :Kirim Notifikasi Berhasil ke Admin;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Mengedit Data Beasiswa
+
+partition "Admin" {
+    start
+    :Akses Menu Data Beasiswa;
+    :Edit Data Beasiswa;
+    :Kirim Perubahan ke Backend;
+    stop
+}
+
+partition "Backend (Proses Data Beasiswa)" {
+    start
+    :Terima Data;
+    :Validasi & Simpan Perubahan;
+    :Kirim Notifikasi Berhasil ke Admin;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Menghapus Data Beasiswa
+
+partition "Admin" {
+    start
+    :Akses Menu Data Beasiswa;
+    :Hapus Data Beasiswa;
+    :Kirim Perubahan ke Backend;
+    stop
+}
+
+partition "Backend (Proses Data Beasiswa)" {
+    start
+    :Terima Data;
+    :Validasi & Simpan Perubahan;
+    :Kirim Notifikasi Berhasil ke Admin;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Melihat Data Beasiswa
+
+partition "Mahasiswa" {
+    start
+    :Akses Menu Data Beasiswa;
+    :Melihat Data Beasiswa;
+    stop
+}
+
+partition "Backend (Proses Membaca)" {
+    start
+    :Terima Data;
+    stop
+}
+@enduml
