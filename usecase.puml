@@ -28,11 +28,11 @@ UC0 ..>UC10 : <<extend>>
 UC0 ..>UC8 : <<extend>>
 'UC9 ..>UC4 : <<extend>>
 'UC0 ..>UC3 : <<extend>>
-UC0 ..>UC5 : <<extend>>
 'UC3 ..>UC6 : <<extend>>
 'UC0 ..>UC7 : <<extend>>
 'UC3 ..> UC4 : <<extend>>
 
+Admin -->UC5
 Admin -->UC0
 User-->UC5
 @enduml

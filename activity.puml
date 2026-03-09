@@ -1,4 +1,28 @@
 @startuml
+title Activity Diagram - Login Admin
+
+partition "Admin" {
+    start
+    :Buka Sistem;
+    :Masukkan Username & Password;
+    :Kirim Data Login;
+    stop
+}
+
+partition "Backend (Autentikasi)" {
+    start
+    :Validasi Akun;
+    if (Login Valid?) then (Ya)
+        :Akses Diberikan;
+        stop
+    else (Tidak)
+        :Tolak Akses;
+        :Tampilkan Pesan Gagal Login;
+        stop
+    endif
+}
+
+@startuml
 title Activity Diagram - Menambah Data Beasiswa
 
 partition "Admin" {
@@ -59,6 +83,23 @@ partition "Backend (Proses Data Beasiswa)" {
 @enduml
 
 @startuml
+title Activity Diagram - Logout Admin
+
+partition "Admin" {
+    start
+    :Klik Logout;
+    stop
+}
+
+partition "System" {
+    start
+    :Hapus Session & Akses;
+    :Kembali ke Halaman Login;
+    stop
+}
+@enduml
+
+@startuml
 title Activity Diagram - Melihat Data Beasiswa
 
 partition "Mahasiswa" {
@@ -70,7 +111,7 @@ partition "Mahasiswa" {
 
 partition "Backend (Proses Membaca)" {
     start
-    :Terima Data;
+    :Menampilkan Data;
     stop
 }
 @enduml
