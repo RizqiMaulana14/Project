@@ -1,56 +1,40 @@
 @startuml
 
-'=====================================
-'            PACKAGE: USER MANAGEMENT
-'=====================================
-
 package "UserManagement" {
 
-    class User {
+    class Admin {
         - id: int
-        - nama: string
         - username: string
         - password: string
-        - email: string
         + login()
         + logout()
+        + TambahBeasiswa()
+        + EditBeasiswa()
+        + HapusBeasiswa()
     }
 
-    class Admin {
-        + loadAdminData()
-        + kelolaBeasiswa()
+    class Mahasiswa {
+        - id: int
+        - username: string
+        + LihatBeasiswa()
     }
 
-    User <|-- Admin
 }
-
-'=====================================
-'            PACKAGE: INVENTORY
-'=====================================
-'
-
-'=====================================
-'            PACKAGE: RENTAL SYSTEM
-'=====================================
 
 package "Beasiswa" {
 
     class Beasiswa {
         - id: int
-        - informasi : string
+        - nama: string
+        - sumber: string
+        - syarat: string
+        - deskripsi: string
         - jenis: string
     }
 }
 
-'=====================================
-'             RELATIONS
-'=====================================
-
-'Pelanggan --> Rental : melakukan 
-'Rental --> PlayStation : menggunakan 
 Admin --> Beasiswa : mengelola 
 
-Admin o--> User : kelola 
-'Admin o--> PlayStation : kelola 
+Mahasiswa --> Beasiswa : melihat 
 
 @enduml
