@@ -1,6 +1,6 @@
 @startuml
 title Use Case Diagram - Layanan Informasi Beasiswa
-'left to right direction
+left to right direction
 
 actor Admin #LightPink
 actor User #Darkorange
@@ -13,7 +13,7 @@ rectangle "Layanan Informasi Beasiswa" {
     'usecase "Melakukan\nPemesanan" as UC3 #LightGreen
     'usecase "Mencetak\nStruk" as UC4 #LightGreen
     usecase "Melihat Daftar Beasiswa" as UC5 #LightGreen
-    'usecase "Mengembalikan PS" as UC6 #LightGreen
+    usecase "Search Beasiswa" as UC6 #LightGreen
     'usecase "Mengelola Data Diri (Profil)" as UC7 #LightGreen
 
     usecase "Mengedit Informasi\nBeasiswa" as UC8 #LightCoral
@@ -34,37 +34,7 @@ UC0 ..>UC8 : <<extend>>
 
 Admin -->UC5
 Admin -->UC0
+Admin-->UC6
 User-->UC5
-@enduml
-
-@startuml
-left to right direction
-
-actor "Admin" as admin
-actor "Mahasiswa" as mhs
-
-rectangle "Layanan Informasi Beasiswa" {
-    usecase "Login" as UC_Login
-    usecase "Menambahkan Informasi Beasiswa" as UC_Add
-    usecase "Mengupdate Informasi Beasiswa" as UC_Update
-    usecase "Menghapus Informasi Beasiswa" as UC_Delete
-    usecase "Logout" as UC_Logout
-    usecase "Melihat Informasi Beasiswa" as UC_Read
-}
-
-' Relasi Admin
-admin --> UC_Login
-admin --> UC_Read
-
-' Relasi Include (Wajib Login)
-UC_Login ..> UC_Add : <<include>>
-UC_Login ..> UC_Update : <<include>>
-UC_Login ..> UC_Delete : <<include>>
-
-' Relasi Extend (Opsional)
-UC_Login ..> UC_Logout  : <<extend>>
-
-' Relasi Mahasiswa
-mhs --> UC_Read
-
+User-->UC6
 @enduml

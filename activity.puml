@@ -102,10 +102,57 @@ partition "System" {
 @startuml
 title Activity Diagram - Melihat Data Beasiswa
 
+partition "Admin" {
+    start
+    :Melihat Data Beasiswa;
+    stop
+}
+
+partition "Backend (Proses Membaca)" {
+    start
+    :Menampilkan Data;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Melihat Data Beasiswa
+
 partition "Mahasiswa" {
     start
-    :Akses Menu Data Beasiswa;
     :Melihat Data Beasiswa;
+    stop
+}
+
+partition "Backend (Proses Membaca)" {
+    start
+    :Menampilkan Data;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Melihat Data Beasiswa
+
+partition "Mahasiswa" {
+    start
+    :Search Data Beasiswa;
+    stop
+}
+
+partition "Backend (Proses Membaca)" {
+    start
+    :Menampilkan Data;
+    stop
+}
+@enduml
+
+@startuml
+title Activity Diagram - Melihat Data Beasiswa
+
+partition "Admin" {
+    start
+    :Search Data Beasiswa;
     stop
 }
 
