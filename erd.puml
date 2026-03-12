@@ -12,11 +12,10 @@ entity Kategori {
 }
 
 entity Admin {
-  +nidn : VARCHAR(20) <<PK>>
+  +IDAdmin : CHAR(9) <<PK>>
   username : VARCHAR(24)
   email : VARCHAR(40)
   password : VARCHAR(24)
-  nama_lengkap : VARCHAR(60)
 }
 
 entity Beasiswa {
@@ -26,8 +25,8 @@ entity Beasiswa {
   tgl_tutup : DATE
   link_beasiswa : VARCHAR(500)
   deskripsi : VARCHAR(MAX)
-  id_jenjang : INT <<FK>>
-  id_kategori : INT <<FK>>
+  nama_jenjang : VARCHAR(10) <<FK>>
+  nama_kategori : VARCHAR(30) <<FK>>
 }
 
 Jenjang "1" -- "0..N" Beasiswa : memiliki
