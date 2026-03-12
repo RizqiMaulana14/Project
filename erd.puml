@@ -1,0 +1,31 @@
+@startuml
+title ERD - Sistem Layanan Informasi Beasiswa
+
+entity jenjang {
+    +id_jenjang : int <<PK>>
+    jenjang : varchar(100) <<NOT NULL>>
+}
+
+entity kategori {
+    +id_kategori : int <<PK>>
+    kategori : varchar(100) <<NOT NULL>>
+}
+
+entity beasiswa {
+    +id_beasiswa : int <<PK>>
+    nama_beasiswa : varchar(150) <<NOT NULL>>
+    penyelenggara : varchar(150) <<NOT NULL>>
+    deskripsi : text 
+    mulai_pendaftaran : date 
+    akhir_pendaftaran : date
+    link : varchar(255)
+    --
+    id_jenjang : int <<FK>> 
+    id_kategori : int <<FK>>
+}
+
+' Relasi dengan constraint
+jenjang ||--o{ beasiswa : FK_beasiswa_jenjang
+kategori ||--o{ beasiswa : FK_beasiswa_kategori
+
+@enduml
